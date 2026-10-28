@@ -68,27 +68,8 @@ body::before {
     margin: 16px 0 16px 0;
 }
 
-.texto__linha {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.texto__linha + .texto__linha {
+.container__texto p {
     margin-top: 1.5rem;
-}
-
-.botao__fala {
-    flex-shrink: 0;
-    border: none;
-    background: transparent;
-    padding: 0.5rem;
-    cursor: pointer;
-}
-
-.botao__fala:disabled {
-    background: transparent;
-    cursor: not-allowed;
 }
 
 .container__texto-azul {

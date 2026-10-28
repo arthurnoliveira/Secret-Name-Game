@@ -11,20 +11,8 @@ function limparInput() {
 function exibirTextoNaTela(tag, texto) {
   let elemento = document.querySelector(tag)
   elemento.textContent = texto
-
-  let botaoFala = document.getElementById(tag === 'h1' ? 'btn-speak-h1' : 'btn-speak-p')
-  botaoFala.disabled = !elemento.textContent.trim()
+  responsiveVoice.speak(texto, 'Brazilian Portuguese Female', { rate: 1.2, pitch: 1, volume: 1 })
 }
-
-function lerTexto(tag) {
-  let texto = document.querySelector(tag).textContent.trim()
-  if (texto && window.responsiveVoice) {
-    window.responsiveVoice.speak(texto, 'Brazilian Portuguese Female', { rate: 1.2, pitch: 1, volume: 1 })
-  }
-}
-
-document.getElementById('btn-speak-h1').addEventListener('click', () => lerTexto('h1'))
-document.getElementById('btn-speak-p').addEventListener('click', () => lerTexto('p'))
 
 exibirTextoNaTela('h1', 'Jogo do Número Secreto')
 exibirTextoNaTela('p', `Escolha um número entre 1 e ${numeroMaximo}`)
@@ -85,6 +73,6 @@ function verificarNumero() {
     exibirTextoNaTela('p', `Você digitou ${chute}, tente novamente!`)
     document.getElementById('reiniciar').removeAttribute('disabled', true)
   }
-  console.log(listaNumerosSortados)
-  console.log(numeroSecreto)
+  // console.log(listaNumerosSortados)
+  // console.log(numeroSecreto)
 }
